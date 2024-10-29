@@ -6,5 +6,19 @@ namespace Server
         {
             InitializeComponent();
         }
+
+        private void button_Bai01_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Bai_01().ShowDialog();
+            this.Show();
+        }
+
+        private void button_Bai3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Bai_03_Server().ShowDialog();
+            this.Show();
+        }
     }
 }

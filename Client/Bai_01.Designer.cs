@@ -37,6 +37,8 @@ namespace Client
             richTextBox_Message = new RichTextBox();
             label_Message = new Label();
             button_Send = new Button();
+            button_Clear = new Button();
+            button_ClearMessage = new Button();
             SuspendLayout();
             // 
             // label_IPRemoteHost
@@ -51,6 +53,7 @@ namespace Client
             // 
             // textBox_IPRemote
             // 
+            textBox_IPRemote.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_IPRemote.Location = new Point(43, 72);
             textBox_IPRemote.Multiline = true;
             textBox_IPRemote.Name = "textBox_IPRemote";
@@ -59,6 +62,7 @@ namespace Client
             // 
             // textBox_Port
             // 
+            textBox_Port.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_Port.Location = new Point(306, 72);
             textBox_Port.Multiline = true;
             textBox_Port.Name = "textBox_Port";
@@ -102,7 +106,29 @@ namespace Client
             button_Send.TabIndex = 6;
             button_Send.Text = "Send";
             button_Send.UseVisualStyleBackColor = true;
-            button_Send.Click += this.button_Send_Click;
+            button_Send.Click += button_Send_Click;
+            // 
+            // button_Clear
+            // 
+            button_Clear.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_Clear.Location = new Point(224, 350);
+            button_Clear.Name = "button_Clear";
+            button_Clear.Size = new Size(110, 41);
+            button_Clear.TabIndex = 7;
+            button_Clear.Text = "Clear";
+            button_Clear.UseVisualStyleBackColor = true;
+            button_Clear.Click += button_Clear_Click;
+            // 
+            // button_ClearMessage
+            // 
+            button_ClearMessage.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_ClearMessage.Location = new Point(38, 350);
+            button_ClearMessage.Name = "button_ClearMessage";
+            button_ClearMessage.Size = new Size(171, 41);
+            button_ClearMessage.TabIndex = 8;
+            button_ClearMessage.Text = "Clear Message";
+            button_ClearMessage.UseVisualStyleBackColor = true;
+            button_ClearMessage.Click += button_ClearMessage_Click;
             // 
             // Bai_01
             // 
@@ -110,6 +136,8 @@ namespace Client
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(507, 403);
+            Controls.Add(button_ClearMessage);
+            Controls.Add(button_Clear);
             Controls.Add(button_Send);
             Controls.Add(label_Message);
             Controls.Add(richTextBox_Message);
@@ -134,5 +162,7 @@ namespace Client
         private RichTextBox richTextBox_Message;
         private Label label_Message;
         private Button button_Send;
+        private Button button_Clear;
+        private Button button_ClearMessage;
     }
 }
