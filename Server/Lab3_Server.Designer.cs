@@ -114,9 +114,13 @@
             Controls.Add(button_Bai2);
             Controls.Add(button_Bai01);
             Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Name = "Lab3_Server";
-            Text = "Lab3_Server";
-            ResumeLayout(false);
+
+            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(254, 158, 85);
+            ClientSize = new Size(651, 512);
+            Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 4, 4, 4);
         }
 
         #endregion
