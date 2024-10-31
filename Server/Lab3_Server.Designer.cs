@@ -104,23 +104,19 @@
             // 
             // Lab3_Server
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Window;
-            ClientSize = new Size(800, 303);
+            BackColor = Color.White;
+            ClientSize = new Size(743, 321);
             Controls.Add(button_Bai5);
             Controls.Add(button_Bai4);
             Controls.Add(button_Bai3);
             Controls.Add(button_Bai2);
             Controls.Add(button_Bai01);
-            Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-
-            AutoScaleDimensions = new SizeF(11F, 24F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(254, 158, 85);
-            ClientSize = new Size(651, 512);
             Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
+            Name = "Lab3_Server";
+            ResumeLayout(false);
         }
 
         #endregion
