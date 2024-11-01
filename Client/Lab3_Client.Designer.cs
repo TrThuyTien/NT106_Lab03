@@ -88,6 +88,7 @@
             btn_BT4.TabIndex = 3;
             btn_BT4.Text = "Bài 4";
             btn_BT4.UseVisualStyleBackColor = false;
+            btn_BT4.Click += btn_BT4_Click;
             // 
             // btn_BT5
             // 
