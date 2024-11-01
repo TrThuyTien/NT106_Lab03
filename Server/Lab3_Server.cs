@@ -20,5 +20,12 @@ namespace Server
             new Bai_03_Server().ShowDialog();
             this.Show();
         }
+
+        private void button_Bai4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Bai_04_Server().ShowDialog();
+            this.Show();
+        }
     }
 }

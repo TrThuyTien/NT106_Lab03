@@ -88,6 +88,7 @@
             button_Bai4.TabIndex = 3;
             button_Bai4.Text = "Bài tập 4";
             button_Bai4.UseVisualStyleBackColor = false;
+            button_Bai4.Click += button_Bai4_Click;
             // 
             // button_Bai5
             // 

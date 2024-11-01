@@ -32,5 +32,12 @@ namespace Client
             new Bai_03_Client().ShowDialog();
             this.Show();
         }
+
+        private void btn_BT4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Bai_04_Client().ShowDialog();
+            this.Show();
+        }
     }
 }
