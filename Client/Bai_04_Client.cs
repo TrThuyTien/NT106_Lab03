@@ -27,14 +27,27 @@ namespace Client
 
         private async void button_Connect_Click(object sender, EventArgs e)
         {
-            tcpClient = new TcpClient();
-            await tcpClient.ConnectAsync("127.0.0.1", 8080);
-            stream = tcpClient.GetStream();
-            isConnected = true;
+            // Yêu cầu người dùng phải nhập tên trước khi join vào roomchat
+            if (string.IsNullOrEmpty(textBox_Name.Text))
+            {
+                MessageBox.Show(
+                    "Vui lòng nhập tên của bạn",
+                    "Client Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+            else
+            {
+                tcpClient = new TcpClient();
+                await tcpClient.ConnectAsync("127.0.0.1", 8080);
+                stream = tcpClient.GetStream();
+                isConnected = true;
 
-            // Nhận nội dung hiện tại từ server
-            _ = Task.Run(() => ReceiveContentAsync());
-            textBox_Editor.Enabled = true;
+                // Nhận nội dung hiện tại từ server
+                _ = Task.Run(() => ReceiveContentAsync());
+            }
+
         }
 
         private async Task ReceiveContentAsync()
@@ -45,34 +58,61 @@ namespace Client
             while (isConnected && (byteCount = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
             {
                 string content = Encoding.UTF8.GetString(buffer, 0, byteCount);
-                textBox_Editor.Invoke((MethodInvoker)(() =>
+                textBox_Chat.Invoke((MethodInvoker)(() =>
                 {
-                    textBox_Editor.Text = content;
+                    textBox_Chat.Text = content;
                 }));
             }
         }
 
-        private async void textBox_Editor_TextChanged(object sender, EventArgs e)
+        private async void button_Send_Click(object sender, EventArgs e)
         {
-            if (isConnected)
+            if (!isConnected)
             {
-                string updatedContent = textBox_Editor.Text;
-                byte[] bufferContent = Encoding.UTF8.GetBytes(updatedContent);
-                await stream.WriteAsync(bufferContent, 0, bufferContent.Length);
+                MessageBox.Show(
+                    "Bạn chưa tham gia phòng chat", 
+                    "Client Warning", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning
+                );
+            } 
+            else
+            {
+                if (string.IsNullOrEmpty(textBox_Message.Text))
+                {
+                    MessageBox.Show(
+                        "Vui lòng nhập Message",
+                        "Client Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+                else
+                {
+                    string message = $"{textBox_Name.Text}: " + textBox_Message.Text + "\r\n";
+                    textBox_Chat.AppendText(message);
+                    byte[] buffer = Encoding.UTF8.GetBytes(message);
+                    await stream.WriteAsync(buffer, 0, buffer.Length);
+                    textBox_Message.Clear();
+                }
             }
         }
 
-        private void button_Disconnect_Click(object sender, EventArgs e)
+        private async void button_Disconnect_Click(object sender, EventArgs e)
         {
             if (isConnected)
             {
+                // Gửi thông báo đến server là đã ra khỏi phòng Chat
+                string message = $"{textBox_Name.Text} đã rời khỏi phòng chat";
+                byte[] buffer = Encoding.UTF8.GetBytes(message);
+                await stream.WriteAsync(buffer, 0, buffer.Length);
                 isConnected = false;
                 stream.Close();
                 tcpClient.Close();
-                textBox_Editor.Enabled = false;
-                textBox_Editor.Clear();
+                textBox_Chat.Clear();
             }
         }
+
     }
 
 }
