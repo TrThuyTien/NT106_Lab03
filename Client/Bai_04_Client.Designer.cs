@@ -31,7 +31,12 @@
             label_Title = new Label();
             button_Connect = new Button();
             button_Disconnect = new Button();
-            textBox_Editor = new TextBox();
+            textBox_Chat = new TextBox();
+            label_Name = new Label();
+            label_Message = new Label();
+            textBox_Message = new TextBox();
+            button_Send = new Button();
+            textBox_Name = new TextBox();
             SuspendLayout();
             // 
             // label_Title
@@ -46,32 +51,75 @@
             // 
             // button_Connect
             // 
-            button_Connect.Location = new Point(480, 431);
+            button_Connect.Location = new Point(470, 392);
             button_Connect.Name = "button_Connect";
             button_Connect.Size = new Size(99, 33);
             button_Connect.TabIndex = 7;
-            button_Connect.Text = "Connect";
+            button_Connect.Text = "Join";
             button_Connect.UseVisualStyleBackColor = true;
             button_Connect.Click += button_Connect_Click;
             // 
             // button_Disconnect
             // 
-            button_Disconnect.Location = new Point(344, 431);
+            button_Disconnect.Location = new Point(470, 443);
             button_Disconnect.Name = "button_Disconnect";
-            button_Disconnect.Size = new Size(130, 33);
+            button_Disconnect.Size = new Size(99, 33);
             button_Disconnect.TabIndex = 9;
             button_Disconnect.Text = "Out";
             button_Disconnect.UseVisualStyleBackColor = true;
             button_Disconnect.Click += button_Disconnect_Click;
             // 
-            // textBox_Editor
+            // textBox_Chat
             // 
-            textBox_Editor.Location = new Point(48, 83);
-            textBox_Editor.Multiline = true;
-            textBox_Editor.Name = "textBox_Editor";
-            textBox_Editor.Size = new Size(531, 325);
-            textBox_Editor.TabIndex = 10;
-            textBox_Editor.TextChanged += textBox_Editor_TextChanged;
+            textBox_Chat.BackColor = SystemColors.Window;
+            textBox_Chat.Location = new Point(38, 67);
+            textBox_Chat.Multiline = true;
+            textBox_Chat.Name = "textBox_Chat";
+            textBox_Chat.ReadOnly = true;
+            textBox_Chat.Size = new Size(531, 275);
+            textBox_Chat.TabIndex = 10;
+            // 
+            // label_Name
+            // 
+            label_Name.AutoSize = true;
+            label_Name.Location = new Point(38, 357);
+            label_Name.Name = "label_Name";
+            label_Name.Size = new Size(109, 24);
+            label_Name.TabIndex = 11;
+            label_Name.Text = "Your Name";
+            // 
+            // label_Message
+            // 
+            label_Message.AutoSize = true;
+            label_Message.Location = new Point(38, 416);
+            label_Message.Name = "label_Message";
+            label_Message.Size = new Size(87, 24);
+            label_Message.TabIndex = 12;
+            label_Message.Text = "Message";
+            // 
+            // textBox_Message
+            // 
+            textBox_Message.Location = new Point(38, 443);
+            textBox_Message.Name = "textBox_Message";
+            textBox_Message.Size = new Size(308, 32);
+            textBox_Message.TabIndex = 13;
+            // 
+            // button_Send
+            // 
+            button_Send.Location = new Point(365, 443);
+            button_Send.Name = "button_Send";
+            button_Send.Size = new Size(99, 33);
+            button_Send.TabIndex = 14;
+            button_Send.Text = "Send";
+            button_Send.UseVisualStyleBackColor = true;
+            button_Send.Click += button_Send_Click;
+            // 
+            // textBox_Name
+            // 
+            textBox_Name.Location = new Point(38, 381);
+            textBox_Name.Name = "textBox_Name";
+            textBox_Name.Size = new Size(154, 32);
+            textBox_Name.TabIndex = 15;
             // 
             // Bai_04_Client
             // 
@@ -79,7 +127,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 190, 105);
             ClientSize = new Size(616, 488);
-            Controls.Add(textBox_Editor);
+            Controls.Add(textBox_Name);
+            Controls.Add(button_Send);
+            Controls.Add(textBox_Message);
+            Controls.Add(label_Message);
+            Controls.Add(label_Name);
+            Controls.Add(textBox_Chat);
             Controls.Add(button_Disconnect);
             Controls.Add(button_Connect);
             Controls.Add(label_Title);
@@ -96,6 +149,11 @@
         private Label label_Title;
         private Button button_Connect;
         private Button button_Disconnect;
-        private TextBox textBox_Editor;
+        private TextBox textBox_Chat;
+        private Label label_Name;
+        private Label label_Message;
+        private TextBox textBox_Message;
+        private Button button_Send;
+        private TextBox textBox_Name;
     }
 }
