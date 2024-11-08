@@ -10,7 +10,13 @@ namespace Server
         private void button_Bai01_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Bai_01().ShowDialog();
+            new Bai_01_Server().ShowDialog();
+            this.Show();
+        }
+        private void button_Bai2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Bai_02_Server().ShowDialog();
             this.Show();
         }
 
@@ -27,5 +33,6 @@ namespace Server
             new Bai_04_Server().ShowDialog();
             this.Show();
         }
+
     }
 }

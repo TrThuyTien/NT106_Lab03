@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Server
 {
-    public partial class Bai_01 : Form
+    public partial class Bai_01_Server : Form
     {
-        public Bai_01()
+        public Bai_01_Server()
         {
             InitializeComponent();
         }

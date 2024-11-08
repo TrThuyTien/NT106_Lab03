@@ -61,6 +61,7 @@
             button_Bai2.TabIndex = 1;
             button_Bai2.Text = "Bài tập 2";
             button_Bai2.UseVisualStyleBackColor = false;
+            button_Bai2.Click += button_Bai2_Click;
             // 
             // button_Bai3
             // 
@@ -117,6 +118,7 @@
             Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "Lab3_Server";
+            Text = "SERVER";
             ResumeLayout(false);
         }
 

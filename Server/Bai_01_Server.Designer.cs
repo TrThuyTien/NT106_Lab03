@@ -1,6 +1,6 @@
 ﻿namespace Server
 {
-    partial class Bai_01
+    partial class Bai_01_Server
     {
         /// <summary>
         /// Required designer variable.

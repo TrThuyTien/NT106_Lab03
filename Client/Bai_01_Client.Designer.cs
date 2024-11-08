@@ -2,7 +2,7 @@
 
 namespace Client
 {
-    partial class Bai_01
+    partial class Bai_01_Client
     {
         /// <summary>
         ///  Required designer variable.

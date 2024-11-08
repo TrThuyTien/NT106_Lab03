@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace Client
 {
-    public partial class Bai_01 : Form
+    public partial class Bai_01_Client : Form
     {
-        public Bai_01()
+        public Bai_01_Client()
         {
             InitializeComponent();
         }
