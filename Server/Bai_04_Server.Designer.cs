@@ -64,6 +64,7 @@
             button_Stop.TabIndex = 3;
             button_Stop.Text = "Stop";
             button_Stop.UseVisualStyleBackColor = true;
+            button_Stop.Click += button_Stop_Click;
             // 
             // textBox_Editor
             // 
@@ -88,6 +89,7 @@
             Margin = new Padding(4);
             Name = "Bai_04_Server";
             Text = "BT4 _ Server Room";
+            FormClosing += Bai_04_Server_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

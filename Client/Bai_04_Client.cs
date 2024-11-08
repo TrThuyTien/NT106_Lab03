@@ -27,25 +27,37 @@ namespace Client
 
         private async void button_Connect_Click(object sender, EventArgs e)
         {
-            // Yêu cầu người dùng phải nhập tên trước khi join vào roomchat
-            if (string.IsNullOrEmpty(textBox_Name.Text))
+            if (isConnected)
             {
                 MessageBox.Show(
-                    "Vui lòng nhập tên của bạn",
-                    "Client Error",
+                    "Bạn đã tham gia vào phòng chat",
+                    "Client Information",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                    MessageBoxIcon.Information
+                    );
             }
             else
             {
-                tcpClient = new TcpClient();
-                await tcpClient.ConnectAsync("127.0.0.1", 8080);
-                stream = tcpClient.GetStream();
-                isConnected = true;
-
-                // Nhận nội dung hiện tại từ server
-                _ = Task.Run(() => ReceiveContentAsync());
+                // Yêu cầu người dùng phải nhập tên trước khi join vào roomchat
+                if (string.IsNullOrEmpty(textBox_Name.Text))
+                {
+                    MessageBox.Show(
+                        "Vui lòng nhập tên của bạn",
+                        "Client Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+                else
+                {
+                    tcpClient = new TcpClient();
+                    await tcpClient.ConnectAsync("127.0.0.1", 8080);
+                    stream = tcpClient.GetStream();
+                    isConnected = true;
+                    textBox_Name.Enabled = false;
+                    // Nhận nội dung hiện tại từ server
+                    _ = Task.Run(() => ReceiveContentAsync());
+                }
             }
 
         }
@@ -70,12 +82,12 @@ namespace Client
             if (!isConnected)
             {
                 MessageBox.Show(
-                    "Bạn chưa tham gia phòng chat", 
-                    "Client Warning", 
-                    MessageBoxButtons.OK, 
+                    "Bạn chưa tham gia phòng chat",
+                    "Client Warning",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
-            } 
+            }
             else
             {
                 if (string.IsNullOrEmpty(textBox_Message.Text))
@@ -103,7 +115,7 @@ namespace Client
             if (isConnected)
             {
                 // Gửi thông báo đến server là đã ra khỏi phòng Chat
-                string message = $"{textBox_Name.Text} đã rời khỏi phòng chat";
+                string message = $"{textBox_Name.Text} đã rời khỏi phòng chat\r\n";
                 byte[] buffer = Encoding.UTF8.GetBytes(message);
                 await stream.WriteAsync(buffer, 0, buffer.Length);
                 isConnected = false;
@@ -113,6 +125,20 @@ namespace Client
             }
         }
 
+        private async void Bai_04_Client_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isConnected)
+            {
+                // Gửi thông báo đến server là đã ra khỏi phòng Chat
+                string message = $"{textBox_Name.Text} đã rời khỏi phòng chat\r\n";
+                byte[] buffer = Encoding.UTF8.GetBytes(message);
+                await stream.WriteAsync(buffer, 0, buffer.Length);
+                isConnected = false;
+                stream.Close();
+                tcpClient.Close();
+                textBox_Chat.Clear();
+            }
+        }
     }
 
 }
