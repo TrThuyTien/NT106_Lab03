@@ -22,7 +22,7 @@ namespace Client
         private void btn_BT1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Bai_01().ShowDialog();
+            new Bai_01_Client().ShowDialog();
             this.Show();
         }
 
