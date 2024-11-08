@@ -140,6 +140,7 @@
             Margin = new Padding(4);
             Name = "Bai_04_Client";
             Text = "BT4 _ Client ChatRoom";
+            FormClosing += Bai_04_Client_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
