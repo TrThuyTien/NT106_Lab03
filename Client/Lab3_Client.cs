@@ -39,5 +39,12 @@ namespace Client
             new Bai_04_Client().ShowDialog();
             this.Show();
         }
+
+        private void btn_BT5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new SignIn_BT5().ShowDialog();
+            this.Show();
+        }
     }
 }
