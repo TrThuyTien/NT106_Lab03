@@ -103,6 +103,7 @@
             button_Bai5.TabIndex = 4;
             button_Bai5.Text = "Bài tập 5";
             button_Bai5.UseVisualStyleBackColor = false;
+            button_Bai5.Click += button_Bai5_Click;
             // 
             // Lab3_Server
             // 

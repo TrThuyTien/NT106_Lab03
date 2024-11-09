@@ -34,5 +34,11 @@ namespace Server
             this.Show();
         }
 
+        private void button_Bai5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Bai_05_Server().ShowDialog();
+            this.Show();
+        }
     }
 }

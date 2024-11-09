@@ -102,6 +102,7 @@
             btn_BT5.TabIndex = 4;
             btn_BT5.Text = "Bài 5";
             btn_BT5.UseVisualStyleBackColor = false;
+            btn_BT5.Click += btn_BT5_Click;
             // 
             // Lab3_Client
             // 
