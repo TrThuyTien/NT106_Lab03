@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Client
 {
@@ -13,9 +14,9 @@ namespace Client
             InitializeComponent();
         }
 
+        UdpClient udpClient = new UdpClient();
         private void button_Send_Click(object sender, EventArgs e)
         {
-            UdpClient udpClient = new UdpClient();
             try
             {
                 int port;
@@ -85,10 +86,6 @@ namespace Client
             {
                 MessageBox.Show("Error: " + ex.ToString(), "Error Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                udpClient.Close();
-            }
         }
 
         private bool IsValidIPAddress(string ipAddress)
@@ -128,6 +125,7 @@ namespace Client
             textBox_IPRemote.Text = "";
             textBox_Port.Text = "";
             richTextBox_Message.Text = "";
+            udpClient.Close();
         }
     }
 }

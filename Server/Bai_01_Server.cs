@@ -60,6 +60,7 @@ namespace Server
                     {
                         server = new UdpClient(port);
                         isListening = true;
+                        richTextBox_ReceiveMessage.AppendText("Server đang lắng nghe ...\r\n");
                         await Task.Run(() =>
                         {
                             while (isListening)
@@ -81,7 +82,12 @@ namespace Server
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("Error: " + ex.Message, "Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show(
+                                        "Error: " + ex.Message, 
+                                        "Server Error", 
+                                        MessageBoxButtons.OK, 
+                                        MessageBoxIcon.Error
+                                    );
                                     break;
                                 }
                             }
@@ -109,7 +115,7 @@ namespace Server
                 server.Close(); // Đóng socket
                 MessageBox.Show(
                     "Đã dừng lắng nghe và đóng kết nối.",
-                    "Server",
+                    "Server Information",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
@@ -118,12 +124,25 @@ namespace Server
 
         private void button_Clear_Click(object sender, EventArgs e)
         {
-            textBox_Port.Text = "";
-            richTextBox_ReceiveMessage.Text = "";
+            if (isListening)
+            {
+                MessageBox.Show(
+                    "Vui lòng đóng kết nối trước khi xóa.",
+                    "Server Warning ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+            else
+            {
+                textBox_Port.Text = "";
+                richTextBox_ReceiveMessage.Text = "";
+            }
         }
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
+            server.Close();
             this.Close();
         }
 
