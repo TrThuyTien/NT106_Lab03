@@ -45,7 +45,7 @@
             label_Port.AutoSize = true;
             label_Port.BackColor = Color.SkyBlue;
             label_Port.Font = new Font("Cambria", 12F);
-            label_Port.Location = new Point(41, 95);
+            label_Port.Location = new Point(46, 119);
             label_Port.Name = "label_Port";
             label_Port.Size = new Size(47, 23);
             label_Port.TabIndex = 0;
@@ -65,6 +65,7 @@
             // richTextBox_ReceiveMessage
             // 
             richTextBox_ReceiveMessage.BackColor = SystemColors.Window;
+            richTextBox_ReceiveMessage.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             richTextBox_ReceiveMessage.Location = new Point(44, 196);
             richTextBox_ReceiveMessage.Name = "richTextBox_ReceiveMessage";
             richTextBox_ReceiveMessage.ReadOnly = true;
@@ -75,9 +76,10 @@
             // button_Listen
             // 
             button_Listen.BackColor = Color.Azure;
+            button_Listen.Cursor = Cursors.Hand;
             button_Listen.FlatStyle = FlatStyle.Flat;
             button_Listen.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            button_Listen.Location = new Point(362, 90);
+            button_Listen.Location = new Point(362, 114);
             button_Listen.Name = "button_Listen";
             button_Listen.Size = new Size(100, 40);
             button_Listen.TabIndex = 3;
@@ -88,15 +90,15 @@
             // textBox_Port
             // 
             textBox_Port.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            textBox_Port.Location = new Point(94, 90);
-            textBox_Port.Multiline = true;
+            textBox_Port.Location = new Point(99, 114);
             textBox_Port.Name = "textBox_Port";
-            textBox_Port.Size = new Size(149, 38);
+            textBox_Port.Size = new Size(149, 31);
             textBox_Port.TabIndex = 4;
             // 
             // button_Exit
             // 
             button_Exit.BackColor = Color.Azure;
+            button_Exit.Cursor = Cursors.Hand;
             button_Exit.FlatAppearance.BorderColor = Color.Black;
             button_Exit.FlatStyle = FlatStyle.Flat;
             button_Exit.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
@@ -112,9 +114,10 @@
             // button_Clear
             // 
             button_Clear.BackColor = Color.Azure;
+            button_Clear.Cursor = Cursors.Hand;
             button_Clear.FlatStyle = FlatStyle.Flat;
             button_Clear.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            button_Clear.Location = new Point(353, 415);
+            button_Clear.Location = new Point(349, 415);
             button_Clear.Name = "button_Clear";
             button_Clear.Size = new Size(100, 40);
             button_Clear.TabIndex = 6;
@@ -135,9 +138,10 @@
             // button_Stop
             // 
             button_Stop.BackColor = Color.Azure;
+            button_Stop.Cursor = Cursors.Hand;
             button_Stop.FlatStyle = FlatStyle.Flat;
             button_Stop.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            button_Stop.Location = new Point(468, 90);
+            button_Stop.Location = new Point(468, 114);
             button_Stop.Name = "button_Stop";
             button_Stop.Size = new Size(100, 40);
             button_Stop.TabIndex = 8;
@@ -148,6 +152,7 @@
             // button_ClearReceiveMessages
             // 
             button_ClearReceiveMessages.BackColor = Color.Azure;
+            button_ClearReceiveMessages.Cursor = Cursors.Hand;
             button_ClearReceiveMessages.FlatStyle = FlatStyle.Flat;
             button_ClearReceiveMessages.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             button_ClearReceiveMessages.Location = new Point(44, 415);
@@ -158,7 +163,7 @@
             button_ClearReceiveMessages.UseVisualStyleBackColor = false;
             button_ClearReceiveMessages.Click += button_ClearReceiveMessages_Click;
             // 
-            // Bai_01
+            // Bai_01_Server
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -175,7 +180,7 @@
             Controls.Add(label_ReceiveMessages);
             Controls.Add(label_Port);
             Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            Name = "Bai_01";
+            Name = "Bai_01_Server";
             Text = "BT1 _ UDP Server";
             ResumeLayout(false);
             PerformLayout();
